@@ -1,3 +1,6 @@
+import subprocess
+import sys
+
 from models import (
     AgentCapabilities,
     AgentDescriptor,
@@ -32,6 +35,17 @@ def test_bootstrap_request_defaults():
     assert request.preferences.include_raw_logs is False
 
 
+def test_models_import_without_pydantic_warnings():
+    result = subprocess.run(
+        [sys.executable, "-W", "error", "-c", "import models"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    assert result.returncode == 0, result.stderr
+
+
 def test_bootstrap_selects_project_and_returns_rules_skills_contexts(cloud_root):
     index = IndexStore(cloud_root / "indexes")
     index.upsert_project(
@@ -57,6 +71,6 @@ def test_bootstrap_selects_project_and_returns_rules_skills_contexts(cloud_root)
 
     assert response.confidence >= 0.35
     assert response.candidate_projects[0].project_id == "personal-cloud"
-    assert response.json.rules.canonical_version == "2026-06-14.1"
-    assert response.json.skills.runtime_read_candidates[0].skill_id == "brainstorming"
+    assert response.bootstrap_json.rules.canonical_version == "2026-06-14.1"
+    assert response.bootstrap_json.skills.runtime_read_candidates[0].skill_id == "brainstorming"
     assert "Do not store git-managed project source" in response.markdown
