@@ -1,0 +1,12 @@
+# Personal Cloud Storage - Dependencies
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.18
+minio==7.2.15
+aiofiles==24.1.0
+pydantic==2.11.1
+pydantic-settings==2.7.1
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+pytest
+httpx

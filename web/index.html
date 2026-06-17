@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fang Agent Cloud</title>
+  <link rel="stylesheet" href="/console/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Fang Agent Cloud</h1>
+      <p>Agent onboarding, bootstrap checks, and smoke reports.</p>
+    </div>
+    <span class="status">MVP</span>
+  </header>
+
+  <main class="layout">
+    <section class="panel connection">
+      <h2>Connection</h2>
+      <label>
+        API Base URL
+        <input id="baseUrl" autocomplete="off">
+      </label>
+      <label>
+        API Key
+        <input id="apiKey" type="password" autocomplete="current-password">
+      </label>
+      <label>
+        Agent Name
+        <input id="agentName" value="generic" autocomplete="off">
+      </label>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Bootstrap</h2>
+        <div class="actions">
+          <button id="runBootstrap" type="button">Run</button>
+          <button id="getPrompt" type="button" class="secondary">Prompt</button>
+        </div>
+      </div>
+      <label>
+        Workspace Query
+        <input id="workspaceQuery" value="personal cloud agent bootstrap" autocomplete="off">
+      </label>
+      <pre id="setupOutput" aria-live="polite"></pre>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Smoke Tests</h2>
+        <button id="runSmoke" type="button">Run</button>
+      </div>
+      <pre id="smokeOutput" aria-live="polite"></pre>
+    </section>
+  </main>
+
+  <script src="/console/app.js"></script>
+</body>
+</html>

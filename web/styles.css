@@ -1,0 +1,160 @@
+:root {
+  color-scheme: light;
+  --bg: #eef2f6;
+  --panel: #ffffff;
+  --text: #16202a;
+  --muted: #617083;
+  --line: #cfd8e3;
+  --accent: #0f766e;
+  --accent-strong: #0b5d56;
+  --ink: #111827;
+  --code: #0d1b2a;
+  --code-text: #d8f3dc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 28px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.status {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 4px 10px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(360px, 1fr) minmax(360px, 1fr);
+  gap: 16px;
+  padding: 20px 28px;
+}
+
+.panel {
+  min-width: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+input {
+  display: block;
+  width: 100%;
+  min-height: 36px;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border: 1px solid #b9c5d2;
+  border-radius: 6px;
+  color: var(--ink);
+  font: inherit;
+  background: #fbfcfe;
+}
+
+button {
+  min-width: 72px;
+  min-height: 34px;
+  padding: 7px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-strong);
+}
+
+button.secondary {
+  background: #ffffff;
+  color: var(--accent-strong);
+}
+
+pre {
+  min-height: 320px;
+  max-height: calc(100vh - 250px);
+  overflow: auto;
+  margin: 0;
+  padding: 12px;
+  border-radius: 6px;
+  background: var(--code);
+  color: var(--code-text);
+  font: 12px/1.5 Consolas, "SFMono-Regular", monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  pre {
+    min-height: 220px;
+    max-height: none;
+  }
+}
