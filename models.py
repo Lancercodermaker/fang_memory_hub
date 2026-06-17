@@ -2,7 +2,7 @@
 Pydantic models for API request/response schemas.
 """
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from datetime import datetime
 from typing import Optional
 
@@ -225,12 +225,14 @@ class BootstrapJsonPayload(BaseModel):
 
 
 class BootstrapResponse(BaseModel):
+    model_config = ConfigDict(populate_by_name=True)
+
     bootstrap_id: str
     confidence: float
     selected_project_id: str = ""
     candidate_projects: list[CandidateProject] = Field(default_factory=list)
     markdown: str
-    json: BootstrapJsonPayload
+    bootstrap_json: BootstrapJsonPayload = Field(alias="json")
 
 
 class ProjectProfile(BaseModel):

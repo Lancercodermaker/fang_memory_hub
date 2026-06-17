@@ -91,7 +91,7 @@ class BootstrapService:
                 candidate_count=len(candidates),
                 rules_markdown=rules["markdown"],
             ),
-            json=payload,
+            bootstrap_json=payload,
         )
 
     @staticmethod
