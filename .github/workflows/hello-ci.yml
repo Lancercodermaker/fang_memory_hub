@@ -11,6 +11,10 @@ jobs:
         run: pwd
       - name: List repository files
         run: ls -la
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
       - name: Check Python version
         run: python --version
 
