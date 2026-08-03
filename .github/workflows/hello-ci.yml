@@ -5,5 +5,9 @@ jobs:
   hello: 
     runs-on: ubuntu-latest
     steps:
-      - name: Echo hello
-        run: echo "hello CI"
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Show current directory
+        run: pwd
+      - name: List repository files
+        run: ls -la
