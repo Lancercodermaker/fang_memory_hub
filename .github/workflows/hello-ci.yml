@@ -5,7 +5,14 @@ jobs:
   hello: 
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
       - name: Show current directory
         run: pwd
       - name: List repository files
         run: ls -la
+      - name: Check Python version
+        run: python --version
+
+      - name: Locate Python
+        run: which python
