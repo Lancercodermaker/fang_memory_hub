@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo hello
-        run: ech "hello CI"
+        run: echo "hello CI"
