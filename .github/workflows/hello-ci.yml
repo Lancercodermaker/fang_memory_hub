@@ -22,3 +22,5 @@ jobs:
 
       - name: Locate Python
         run: which python
+      - name: Run tests
+        run: python -m pytest -q
