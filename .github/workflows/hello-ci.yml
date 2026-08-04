@@ -4,8 +4,8 @@ on:
 jobs: 
   hello: 
     runs-on: ubuntu-latest
-    env:
-      ClOUD_WORKSPACE: /tmp/fang-memory-hub
+    env: 
+      CLOUD_WORKSPACE: /tmp/fang-memory-hub
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
