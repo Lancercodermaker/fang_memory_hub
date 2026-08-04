@@ -1,6 +1,6 @@
 name: Hello ci
 on: 
-  push
+  [push,pull_request]
 jobs: 
   hello: 
     runs-on: ubuntu-latest
